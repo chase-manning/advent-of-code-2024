@@ -1,0 +1,17 @@
+{
+  "name": "advent-of-code-2024",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/chase-manning/advent-of-code-2024.git",
+  "author": "Chase Manning <chase@manning.dev>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "npx ts-node index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.7.2"
+  }
+}
