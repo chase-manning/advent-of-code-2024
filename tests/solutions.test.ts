@@ -13,6 +13,6 @@ test("Day 02 A", () => {
   expect(day02a()).toBe(299);
 });
 
-test("Day 02 Part 2", () => {
-  expect(day02b()).toBe(0);
+test("Day 02 B", () => {
+  expect(day02b()).toBe(364);
 });
