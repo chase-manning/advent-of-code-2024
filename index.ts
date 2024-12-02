@@ -1,4 +1,4 @@
-import { part1, part2 } from "./solutions/01";
+import { day02a, day02b } from "./solutions/02";
 
-console.log(part1());
-console.log(part2());
+console.log(day02a());
+console.log(day02b());

@@ -10,7 +10,7 @@ for (const line of input.split("\n")) {
   b.push(items[1]);
 }
 
-export const part1 = () => {
+export const day01a = () => {
   a.sort((a, b) => a.localeCompare(b));
   b.sort((a, b) => a.localeCompare(b));
 
@@ -19,7 +19,7 @@ export const part1 = () => {
   }, 0);
 };
 
-export const part2 = () => {
+export const day01b = () => {
   const appearance = (list: number[], value: number) => {
     let count = 0;
     for (const item of list) {
