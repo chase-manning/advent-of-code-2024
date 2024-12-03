@@ -2,14 +2,14 @@ import fs from "fs";
 
 const input = fs.readFileSync("input/03.txt", "utf8");
 
-const getOperations = (input: string, toggle: boolean = false) => {
-  const operations: { a: number; b: number }[] = [];
+type Operation = { a: number; b: number };
+
+const getOperations = (input: string, toggle: boolean = false): Operation[] => {
+  const operations: Operation[] = [];
   let enabled = true;
   for (let i = 0; i < input.length; i++) {
-    const toggleOn = input.substring(i, i + 4) === "do()";
-    if (toggleOn) enabled = true;
-    const toggleOff = input.substring(i, i + 7) === "don't()";
-    if (toggleOff) enabled = false;
+    if (input.substring(i, i + 4) === "do()") enabled = true;
+    if (input.substring(i, i + 7) === "don't()") enabled = false;
     const numberStart = i + 4;
     const numberEnd = input.indexOf(")", numberStart);
     if (input.substring(i, numberStart) === "mul(") {
@@ -19,23 +19,18 @@ const getOperations = (input: string, toggle: boolean = false) => {
       const validNumber = (value: string) => /^\d+$/.test(value);
       if (!validNumber(aString) || !validNumber(bString)) continue;
       if (toggle && !enabled) continue;
-      operations.push({
-        a: parseInt(aString),
-        b: parseInt(bString),
-      });
+      operations.push({ a: parseInt(aString), b: parseInt(bString) });
     }
   }
   return operations;
 };
 
-export const day03a = () => {
-  return getOperations(input).reduce((acc, cur) => {
+const process = (operations: Operation[]) => {
+  return operations.reduce((acc, cur) => {
     return acc + cur.a * cur.b;
   }, 0);
 };
 
-export const day03b = () => {
-  return getOperations(input, true).reduce((acc, cur) => {
-    return acc + cur.a * cur.b;
-  }, 0);
-};
+export const day03a = () => process(getOperations(input));
+
+export const day03b = () => process(getOperations(input, true));
