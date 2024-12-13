@@ -1,6 +1,7 @@
 import { day01a, day01b } from "../solutions/01";
 import { day02a, day02b } from "../solutions/02";
 import { day03a, day03b } from "../solutions/03";
+import { day04a, day04b } from "../solutions/04";
 
 test("Day 01 A", () => {
   expect(day01a()).toBe(2375403);
@@ -24,4 +25,12 @@ test("Day 03 A", () => {
 
 test("Day 03 B", () => {
   expect(day03b()).toBe(102467299);
+});
+
+test("Day 04 A", () => {
+  expect(day04a()).toBe(2514);
+});
+
+test("Day 04 B", () => {
+  expect(day04b()).toBe(1888);
 });
